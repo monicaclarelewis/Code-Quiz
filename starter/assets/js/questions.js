@@ -1,11 +1,11 @@
 var questions = [
     { 
-        question: "", 
+        question: "What would 'pwd' do if typed into your terminal?", 
         answers: [
-            { text: ")", correct: false },
-            { text: "" , correct: true },
-            { text: "", correct: false },
-            { text: "", correct: false }
+            { text: "Tell you your password", correct: false },
+            { text: "Tell you where you are located in the file system" , correct: true },
+            { text: "Makes a new repository", correct: false },
+            { text: "Nothing", correct: false }
         ]
     },
     { 
@@ -27,21 +27,21 @@ var questions = [
         ]
     },
     { 
-        question: "", 
+        question: "Which symbol is used to select an HTML ID attribute in CSS?", 
         answers: [
-            { text: "", correct: false },
-            { text: "", correct: true },
-            { text: "", correct: false },
-            { text: "", correct: false }
+            { text: "!", correct: false },
+            { text: "#", correct: true },
+            { text: ".", correct: false },
+            { text: "+", correct: false }
         ]
     },
     { 
-        question: "",
+        question: "What tag is used to link a Javascript file to an HTML file?",
         answers: [
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: true }
+            { text: "<connect>", correct: false },
+            { text: "<join>", correct: false },
+            { text: "<link>", correct: false },
+            { text: "<script>", correct: true }
         ]
     },
 ];
