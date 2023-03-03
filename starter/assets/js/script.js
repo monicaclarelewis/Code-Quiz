@@ -1,42 +1,34 @@
 
-// Elements
-var timeEl = document.getElementsByClassName("timer");
-scoresEl = document.getElementsByClassName("scores"), // high scores
+//Timer
+var timer = document.querySelector('#time');
 // Buttons
-startBtn = document.getElementsByClassName("start"),
-submitHighscoreBtn = document.getElementById("submit"),
-// Screens
-introEl = document.getElementById("start-screen"),
-quizEl = document.getElementById("questions"), 
-endEl = document.getElementById("end-screen"),
-highscoresEl = document.getElementById("highscores"),
-// Inputs
-initalsInput = document.getElementById("initials");
-//let questNums = [...Array(questions.total).keys()], // array 0 to num of questions
-//num = 1, // question number
-//newInitials = "anon";
+var startButton = document.querySelector("#start");
+//Start screen
+var startScreen = document.querySelector('.start')
+// Scores
+var highscores = document.querySelector('.scores'); 
 
+var seconds = 60;
+timer.textContent = 60;
 
-var secondsLeft = 60;
+// Start button
+startButton.addEventListener("click",  function () {
+  // removes page wrapper
+startScreen.setAttribute("style", "display: none;");
+//showQuestions();
+startTimer ();
+});
 
-//Functions
-
-//Start timer
-function setTime() {
-  startButton.disabled = true;
-  renderBlanks()
-  startTimer()
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft;
-
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      //This will need to move the user to the highscore page.
-    }
-
-  }, 4000);
+// Start timer
+function startTimer () {
+  var Countdown = setInterval (function () {
+      timer.textContent = seconds
+      seconds--;
+  if (seconds == 0) {
+      // clears countdown
+      clearInterval(Countdown); 
+      timer.textContent = 60
+      alert("You have run out of time!")
+  }
+  }, 1000) 
 }
-
-setTime();
