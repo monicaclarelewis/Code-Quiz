@@ -1,15 +1,3 @@
-// var highscores = document.querySelector('.scores');
-// var timer = document.querySelector('#time');
-// var startButton = document.querySelector('.start');
-// var revealQuestion = document.querySelector('#questions');
-// var questionTitle = document.querySelector('#question-title');
-// var question = document.getElementById('choices'); 
-// var endScreen = document.querySelector('#end-screen');
-// var finalScore = document.querySelector('#final-score');
-// var initials = document.querySelector('#initials'); 
-// var feedback = document.querySelector('#feedback');
-
-
 const Questions = [
     { question: "What would 'pwd' do if typed into your terminal?", 
     choices: [

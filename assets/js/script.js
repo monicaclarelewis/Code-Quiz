@@ -9,13 +9,15 @@ var startScreen = document.querySelector('.start')
 var revealQuestion = document.querySelector('#questions');
 var questionTitle = document.querySelector('#question-title');
 var choices = document.querySelector(".choices");
+var feedback = document.querySelector('#feedback');
 //Quiz end
 var endScreen = document.querySelector('#end-screen');
 var finalScore = document.querySelector('#final-score');
-var initials = document.querySelector('#initials'); 
-var feedback = document.querySelector('#feedback');
-var highscores = document.querySelector('#highscores'); 
+var initials = document.querySelector('#initials');
 var submitBtn = document.querySelector('#submit');
+//Highscores
+var clearHighscores = document.querySelector('#clear');
+var highscores = document.querySelector('#highscores'); 
 
 var seconds = Questions.length * 15;
 
@@ -127,9 +129,21 @@ function endGame() {
   finalScore.textContent = seconds
   console.log(timer)
   revealQuestion.setAttribute('class', 'hide')
-}
+  feedback.setAttribute("class", 'hide')
+};
 
 
 //TODO
 //Set highscores on the highscore page 
 
+//Save button to store intials and score
+submitBtn.addEventListener("click", function() {
+  console.log(initials.value) 
+  console.log(timer.textContent) 
+
+  //Save intiials and score to localStorage
+  localStorage.setItem("initials", initials.value);
+  localStorage.setItem("score", timer.textContent);
+
+  
+});
