@@ -15,7 +15,7 @@ var finalScore = document.querySelector('#final-score');
 var initials = document.querySelector('#initials'); 
 var feedback = document.querySelector('#feedback');
 var highscores = document.querySelector('#highscores'); 
-var submit = document.querySelector('#submit');
+var submitBtn = document.querySelector('#submit');
 
 var seconds = Questions.length * 15;
 
@@ -130,6 +130,6 @@ function endGame() {
 }
 
 
-
 //TODO
 //Set highscores on the highscore page 
+
