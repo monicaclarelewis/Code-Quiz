@@ -18,7 +18,7 @@ const Questions = [
         "Makes a new repository",
         "Nothing",
     ],
-    Answer: "Tell you where you are located in the file system"
+    Answer: "Tell you your location in the file system"
     },
     { question: "What does CSS stand for?", 
     choices: [

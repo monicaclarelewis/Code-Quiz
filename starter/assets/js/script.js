@@ -15,6 +15,7 @@ var finalScore = document.querySelector('#final-score');
 var initials = document.querySelector('#initials'); 
 var feedback = document.querySelector('#feedback');
 var highscores = document.querySelector('#highscores'); 
+var submit = document.querySelector('#submit');
 
 var seconds = Questions.length * 15;
 
@@ -25,6 +26,7 @@ var userScore = 0;
 var Currentquestion = "";
 
 var timerId;
+
 // Start button
 startButton.addEventListener("click",  function () {
 startScreen.setAttribute("style", "display: none;"); // removes page wrapper
@@ -33,15 +35,14 @@ timerId = setInterval(startTimer, 1000)
 
 timer.textContent = seconds;
 showQuestions();
-
 });
 
 // Timer
 function startTimer () {
     timer.textContent = seconds
-      seconds--;
+    seconds--;
   if (seconds < 0) {
-      // clears countdown
+    // clears countdown
     endGame()
   }
 };
@@ -59,34 +60,20 @@ choices.innerHTML = ''
 for (i = 0; i < current.choices.length; i++) {
 
  var choice = current.choices[i]
-
+  //Set choices as buttons
  var choiceBtn = document.createElement('button')
-
  choiceBtn.setAttribute('class', 'choice')
-  choiceBtn.setAttribute('value', choice)
-
-  choiceBtn.textContent = i + 1 + '. ' + choice;
-
-  choices.appendChild(choiceBtn)
+ choiceBtn.setAttribute('value', choice)
+ choiceBtn.textContent = i + 1 + '. ' + choice;
+ choices.appendChild(choiceBtn)
 }
 };
-
-// //Answering
-// choices.addEventListener("click", function(event) {
-//   if ((event.target === Questions[Questiontrack].Answer)) { // DOESN'T WORK 
-//     Correct();
-//   } 
-//   else {
-//     seconds -= 10;
-//     Incorrect();
-//   }
-// });
 
 function answerClicked(event) {
   // get response from user event (click)
   var buttonElement = event.target;
 
-  // what if a user clicks somerthing that is not an answer?
+  // stopping the event if the user clicks on something that isn't a choice
   if (!buttonElement.matches('.choice')) {
     return;
   }
@@ -98,15 +85,17 @@ function answerClicked(event) {
     if (seconds < 0) {
       seconds = 0
     }
-
     timer.textContent = seconds
     Incorrect()
+    // if the user answers correctly
   } else {
     Correct()
   }
 
+  //moves to the next question
   Questiontrack++
 
+  //if the time is up or there are no more questions
   if (seconds <= 0 || Questiontrack === Questions.length) {
     endGame()
   } else {
@@ -116,6 +105,20 @@ function answerClicked(event) {
 
 choices.onclick = answerClicked;
 
+//Correct answer
+function Correct () {
+  feedback.textContent = "Correct!"
+  feedback.style.color = "green";
+  feedback.setAttribute("class", "feedback")
+};
+//Incorrect answer 
+function Incorrect () {
+  feedback.textContent = "Wrong!"
+  feedback.style.color = "red";
+  feedback.setAttribute("class", "feedback")
+};
+
+//when the game ends (from time running out or questions are all answered)
 function endGame() {
  clearInterval(timerId)
 
@@ -125,22 +128,8 @@ function endGame() {
   console.log(timer)
   revealQuestion.setAttribute('class', 'hide')
 }
-//Correct answer
-function Correct () {
-  feedback.textContent = "Correct!"
-  feedback.style.color = "green";
-  feedback.setAttribute("class", "feedback")
-};
-//Incorrect answer
-function Incorrect () {
-  feedback.textContent = "Wrong!"
-  feedback.style.color = "red";
-  feedback.setAttribute("class", "feedback")
-};
+
+
 
 //TODO
-//Next questions attribute
-//End screen shows
-//Set final time as score + show on screen
-//Allow user to enter initials add score as highscore
 //Set highscores on the highscore page 
