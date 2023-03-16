@@ -16,7 +16,7 @@ var finalScore = document.querySelector('#final-score');
 var initials = document.querySelector('#initials');
 var submitBtn = document.querySelector('#submit');
 //Highscores
-var clearHighscores = document.querySelector('#clear');
+var clearBtn = document.querySelector('#clear');
 var highscores = document.querySelector('#highscores'); 
 
 var seconds = Questions.length * 15;
@@ -31,12 +31,12 @@ var timerId;
 
 // Start button
 startButton.addEventListener("click",  function () {
-startScreen.setAttribute("style", "display: none;"); // removes page wrapper
+  startScreen.setAttribute("style", "display: none;"); // removes page wrapper
 
-timerId = setInterval(startTimer, 1000)
+  timerId = setInterval(startTimer, 1000)
 
-timer.textContent = seconds;
-showQuestions();
+  timer.textContent = seconds;
+  showQuestions();
 });
 
 // Timer
@@ -61,13 +61,13 @@ choices.innerHTML = ''
 
 for (i = 0; i < current.choices.length; i++) {
 
- var choice = current.choices[i]
+  var choice = current.choices[i]
   //Set choices as buttons
- var choiceBtn = document.createElement('button')
- choiceBtn.setAttribute('class', 'choice')
- choiceBtn.setAttribute('value', choice)
- choiceBtn.textContent = i + 1 + '. ' + choice;
- choices.appendChild(choiceBtn)
+  var choiceBtn = document.createElement('button')
+  choiceBtn.setAttribute('class', 'choice')
+  choiceBtn.setAttribute('value', choice)
+  choiceBtn.textContent = i + 1 + '. ' + choice;
+  choices.appendChild(choiceBtn)
 }
 };
 
@@ -132,10 +132,6 @@ function endGame() {
   feedback.setAttribute("class", 'hide')
 };
 
-
-//TODO
-//Set highscores on the highscore page 
-
 //Save button to store intials and score
 submitBtn.addEventListener("click", function() {
   console.log(initials.value) 
@@ -144,6 +140,20 @@ submitBtn.addEventListener("click", function() {
   //Save intiials and score to localStorage
   localStorage.setItem("initials", initials.value);
   localStorage.setItem("score", timer.textContent);
-
   
+  // setHighscore()
+
+  window.location.href = 'highscores.html'
 });
+
+//TODO
+//Add localStorage to highscores page
+// function setHighscore (){
+
+//   //localStorage.getItem(user)
+//   //localStorage.getItem(scored)
+//   //Add "user" + "scored" to list element (highscores)
+
+// }
+
+//Add cick to clear button to remove localstorage
