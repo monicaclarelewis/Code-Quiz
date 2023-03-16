@@ -1,6 +1,6 @@
 # Code-Quiz
 
-//Link
+https://monicaclarelewis.github.io/Code-Quiz/index.html
 
 ## Description
 
