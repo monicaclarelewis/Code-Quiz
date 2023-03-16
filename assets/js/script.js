@@ -141,19 +141,6 @@ submitBtn.addEventListener("click", function() {
   localStorage.setItem("initials", initials.value);
   localStorage.setItem("score", timer.textContent);
   
-  // setHighscore()
-
+  //Move user to highscore page
   window.location.href = 'highscores.html'
 });
-
-//TODO
-//Add localStorage to highscores page
-// function setHighscore (){
-
-//   //localStorage.getItem(user)
-//   //localStorage.getItem(scored)
-//   //Add "user" + "scored" to list element (highscores)
-
-// }
-
-//Add cick to clear button to remove localstorage
